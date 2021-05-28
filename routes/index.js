@@ -18,4 +18,8 @@ router.get('/sobre', function(req, res, next) {
   res.render('sobre');
 });
 
+router.get('/fale-conosco', function(req, res, next) {
+  res.render('faleConosco');
+});
+
 module.exports = router;
