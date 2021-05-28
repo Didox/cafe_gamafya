@@ -5,7 +5,7 @@ module.exports = {
   },
   cadastrar: function(req, res, next) {
     const {nome, email, comentario} = req.body
-
+    
     res.render('contatos/index');
   }
 };
