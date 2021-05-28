@@ -10,8 +10,5 @@ module.exports = {
   },
   sobre: function(req, res, next) {
     res.render('home/sobre');
-  },
-  faleConosco: function(req, res, next) {
-    res.render('home/faleConosco');
   }
 };
