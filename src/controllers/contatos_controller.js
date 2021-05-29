@@ -2,13 +2,7 @@ const Contato = require("../models/contatos")
 
 module.exports = {
   index: function(req, res, next) {
-    
-    if(req.headers['content-type'] === "application/json"){
-      return res.status(200).send({mensagem: "API de Contatos"})
-    }
-
-    res.render('contatos/index', {erro: undefined, sucesso: undefined});
-    // res.status(200).send({mensagem: "fale conosco"});
+    return res.status(200).send({mensagem: "API de Contatos"})
   },
   cadastrar: function(req, res, next) {
     const {nome, email, comentario} = req.body
@@ -36,11 +30,7 @@ module.exports = {
       }
     }
     
-    if(req.headers['content-type'] === "application/json"){
-      if(erro) return res.status(400).send({mensagem: erro})
-      else return res.status(200).send({mensagem: sucesso})
-    }
-
-    res.render('contatos/index', {erro: erro, sucesso: sucesso});
+    if(erro) return res.status(400).send({mensagem: erro})
+    else return res.status(200).send({mensagem: sucesso})
   }
 };
