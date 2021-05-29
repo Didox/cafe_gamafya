@@ -8,6 +8,13 @@
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-lower">Como podemos ajudar você ?</span>
                         </h2>
+                        <% if(sucesso){ %>
+                            <br>
+                            <div class="alert alert-success" role="alert">
+                                <%= sucesso %>
+                            </div>
+                            <br>
+                        <% } %>
                         <form action="/fale-conosco/cadastrar" method="POST">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
@@ -22,6 +29,12 @@
                                 <textarea class="form-control" id="comentario" name="comentario" placeholder="Digite a sua dúvida"></textarea>
                             </div>
                             <br>
+                            <% if(erro){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= erro %>
+                                </div>
+                                <br>
+                            <% } %>
                             <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>

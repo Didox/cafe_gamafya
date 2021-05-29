@@ -1,17 +1,29 @@
+const db = require("../config/db")
+
 module.exports = class Contato{
-  constructor(){
-    this.id = 0
-    this.nome = ""
-    this.email = ""
-    this.comentario = ""
+  constructor(obj = {id: 0}){
+    this.id = obj.id
+    if(!this.id) this.id = 0
+    this.nome = obj.nome
+    this.email = obj.email
+    this.comentario = obj.comentario
   }
 
-  salvar(){
+  async salvar(){
     if(this.id === 0){
-      // inserir no banco
+      await db.exec("insert into contatos(nome, email, comentario)values(?,?,?)", [
+        this.nome,
+        this.email,
+        this.comentario
+      ]);
     }
     else{
-      // update no banco
+      await db.exec("update contatos set nome=?, email=?, comentario=? where id=?", [
+        this.nome,
+        this.email,
+        this.comentario,
+        this.id
+      ]);
     }
   }
 }
