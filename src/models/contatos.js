@@ -26,4 +26,12 @@ module.exports = class Contato{
       ]);
     }
   }
+
+  static async todos(){
+    return await db.exec("select * from contatos")
+  }
+
+  static async excluir(id){
+    return await db.exec("delete from contatos where id = ?", [id])
+  }
 }
