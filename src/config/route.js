@@ -10,4 +10,8 @@ router.get('/sobre', HomeController.sobre);
 router.get('/fale-conosco', ContatosController.index);
 router.post('/fale-conosco/cadastrar', ContatosController.cadastrar);
 
+router.get('/contatos', ContatosController.contatos);
+router.put('/contatos/:id', ContatosController.atualizar);
+router.delete('/contatos/:id', ContatosController.excluir);
+
 module.exports = router;
